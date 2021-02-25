@@ -23,7 +23,7 @@ class InputParser:
                     break
                 
                 start, end, name, length = lineContents
-                streets.append(street.Street(start, end, name, length))
+                streets.append(street.Street(name, length, start, end))
         return streets
     
     def getCars(self):
