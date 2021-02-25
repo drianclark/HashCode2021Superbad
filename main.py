@@ -10,7 +10,7 @@ def produce_schedule(intersections, streets, cars):
         # line for each incoming street
         for incomig_street in intersection.incomig:
             light_on_duration = 0 # TODO: how to represent how long it will have the light on??
-            schedule += f"{incomig_street.name} {light_on_duration}" 
+            schedule += f"{incomig_street.name} {light_on_duration}\n" 
     return schedule
 
 # the main loop for the program
