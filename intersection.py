@@ -1,12 +1,15 @@
 class Intersection:
-        def __init__(self, incoming, outgoing):
+    def __init__(self, uid):
         """
-        on_light : ID of street that is currently GREEN
+              id : the unique idenity of this intersection
+        on_light : name of street that is currently GREEN
         incoming : dict of connecting (incoming) Street objects keyed by name 
         outgoing : dict of outgoing Street objects keyed by name
         """
+        self.id = uid
         self.incoming = {} 
         self.outgoing = {}
+        self.on_light = None
 
     def go(self, street):
         """
@@ -25,6 +28,7 @@ class Intersection:
             
             # change only the light of the specified street to green
             self.incoming[street.name].light.setGreen()
+            self.on_light = street.name
 
 
     def addIncomingStreet(self, street):
