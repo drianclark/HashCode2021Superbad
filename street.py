@@ -1,5 +1,5 @@
 class Street:
-    def __init__(self, name, length, start, end, cars, lights):
+    def __init__(self, name, length, start, end, lights, cars=None):
         self.length = length
         self.start = start
         self.end = end
