@@ -4,6 +4,9 @@ class Street:
         self.start = start
         self.end = end
         self.name = name
+        self.length = length
         self.cars = cars
         self.is_green = False
         
+    def __repr__(self):
+        return f"Street {self.name} - (Start: {self.start}, End: {self.end}, Length: {self.length})."
