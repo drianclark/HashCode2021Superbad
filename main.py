@@ -1,10 +1,17 @@
 import input_parser
 
-# def summarise(streets, cars, paths):
-#     print(f"Summary of the file:")
-#     print(f"Streets: {len(streets)}.")
-#     print(f"Cars: {len(cars)}.")
-#     print(f"Paths: {len(paths)}.")
+def produce_schedule(intersections, streets, cars):
+    schedule = f"{len(intersections)}\n"
+    for intersection in intersections:
+        # first line with intersection ID
+        schedule += "{intersection.id}\n"
+        # second line with number of incoming streets
+        schedule += f"{len(intersection.incoming)}\n"
+        # line for each incoming street
+        for incomig_street in intersection.incomig:
+            light_on_duration = 0 # TODO: how to represent how long it will have the light on??
+            schedule += f"{incomig_street.name} {light_on_duration}" 
+    return schedule
 
 # the main loop for the program
 def main(input_file):
@@ -15,13 +22,18 @@ def main(input_file):
     print(f"Duration: {duration}; I: {num_intersections}; S: {num_streets}; C: {num_cars}; Bonus: {bonus}")
     
     streets = ip.getStreets()
-    print(streets[0])
-    # cars = ip.getCars()
+    #print(streets[0])
     cars = ip.getCars()
-    print(cars[0])
+    #print(cars[0])
+    intersections = []
 
-    # summarise the input file
-    # summarise(streets, cars, paths)
+    # produce the output file
+    out_file = input_file.split(".")[0] + ".out"
+    with open(out_file, 'w') as f:
+        schedule = produce_schedule(intersections, streets, cars)
+        print(f"Writing schedule to {out_file}.")
+        f.write(schedule)
+
 
 if __name__ == "__main__":
     input_files = ['a.txt'] #'b.txt', 'c.txt', 'd.txt', 'e.txt', 'f.txt']
