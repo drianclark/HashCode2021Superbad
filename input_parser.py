@@ -1,4 +1,4 @@
-# from . import Street
+import street
 
 class InputParser:
     def __init__(self, input_file):
@@ -11,6 +11,7 @@ class InputParser:
         return metadata
             
     def getStreets(self):
+        streets = []
         with open(self.input_file) as f:
             streetLines = f.readlines()[1:]
             for line in streetLines:
@@ -22,7 +23,8 @@ class InputParser:
                     break
                 
                 start, end, name, length = lineContents
-                print(start, end, name, length)
+                streets.append(street.Street(start, end, name, length))
+        return streets
     
     def getPaths(self):
         with open(self.input_file) as f:
