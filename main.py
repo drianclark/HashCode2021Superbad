@@ -12,7 +12,7 @@ def produce_schedule(intersections, streets, cars):
         # line for each incoming street
         for incomig_street in intersection.incoming.values():
             light_on_duration = 0 # TODO: how to represent how long it will have the light on??
-            schedule += f"{incomig_street.name} {light_on_duration}" 
+            schedule += f"{incomig_street.name} {light_on_duration}\n" 
     return schedule
 
 def createIntersections(num_intersetions):
@@ -48,11 +48,33 @@ def main(input_file):
     #print(cars[0])
 
     # produce the output file
-    out_file = input_file.split(".")[0] + ".out"
-    with open(out_file, 'w') as f:
-        schedule = produce_schedule(intersections, streets, cars)
-        print(f"Writing schedule to {out_file}.")
-        f.write(schedule)
+    # out_file = input_file.split(".")[0] + ".out"
+    # with open(out_file, 'w') as f:
+    #     schedule = produce_schedule(intersections, streets, cars)
+    #     print(f"Writing schedule to {out_file}.")
+    #     f.write(schedule)
+        
+    streetMap = {}
+    
+    for street in streets:
+        streetMap[street.name] = street
+    print(f"{streetMap}")
+        
+    carMap = {}
+    for car in cars:
+        carMap[car.id] = car
+    print(f"{carMap}")
+
+    for car, carObject in carMap.items():
+        print(f"Car street: {carObject.street}")
+        print(f"Street '{carObject.street}' cars: {streetMap[carObject.street].cars}")
+        streetMap[carObject.street].cars.append(car)
+        print(f"Street '{carObject.street}' cars: {streetMap[carObject.street].cars}")
+    
+    for street in streets:
+        print(street.name)
+        print(street.cars)
+        print()
 
 
 if __name__ == "__main__":

@@ -1,15 +1,15 @@
 class Street:
-    def __init__(self, name, length, start, end, cars=[], is_green=False):
+    def __init__(self, name, length, start, end, is_green=False):
         self.light = TrafficLight()
         self.name = name
         self.length = length # == Time
         self.start = start
         self.end = end
         self.is_green = False
-        self.cars = cars
+        self.cars = []
 
     def __repr__(self):
-        return f"Street {self.name} - (Start: {self.start}, End: {self.end}, Length: {self.length})."
+        return f"Street {self.name} - (Start: {self.start}, End: {self.end}, Length: {self.length})"
 
 class TrafficLight:
 
