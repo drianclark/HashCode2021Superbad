@@ -1,5 +1,5 @@
 import street
-
+from car import Car
 class InputParser:
     def __init__(self, input_file):
         self.input_file = input_file
@@ -26,7 +26,8 @@ class InputParser:
                 streets.append(street.Street(start, end, name, length))
         return streets
     
-    def getPaths(self):
+    def getCars(self):
+        cars = []
         with open(self.input_file) as f:
             streetLines = f.readlines()[1:]
             
@@ -38,12 +39,9 @@ class InputParser:
                 else:
                     car_id = lineContents[0]
                     car_path = lineContents[1:]
+                    car_street = lineContents[1]
                     
-                    print(car_id)
-                    print(car_path)
-                    print()
-
-        
-a = InputParser("a.txt")
-a.getStreets()
-a.getPaths()
+                    carObject = Car(car_id, car_path, car_street)
+                    cars.append(carObject)
+                   
+        return cars
