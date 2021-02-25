@@ -1,10 +1,14 @@
 4
-{intersection.id}
+0
+1
+rue-de-londres 5
+1
 2
-rue-de-londres 0rue-d-amsterdam 0{intersection.id}
-3
-rue-d-amsterdam 0rue-d-athenes 0rue-de-moscou 0{intersection.id}
-3
-rue-de-londres 0rue-de-rome 0rue-de-moscou 0{intersection.id}
+rue-d-amsterdam 3
+rue-d-athenes 9
 2
-rue-d-athenes 0rue-de-rome 0
+1
+rue-de-moscou 4
+3
+1
+rue-de-rome 3
