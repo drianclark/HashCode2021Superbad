@@ -17,7 +17,8 @@ def main(input_file):
     streets = ip.getStreets()
     print(streets[0])
     # cars = ip.getCars()
-    paths = ip.getPaths()
+    cars = ip.getCars()
+    print(cars[0])
 
     # summarise the input file
     # summarise(streets, cars, paths)
