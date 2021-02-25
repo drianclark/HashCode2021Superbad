@@ -15,6 +15,7 @@ def main(input_file):
     print(f"Duration: {duration}; I: {num_intersections}; S: {num_streets}; C: {num_cars}; Bonus: {bonus}")
     
     streets = ip.getStreets()
+    print(streets[0])
     # cars = ip.getCars()
     paths = ip.getPaths()
 
