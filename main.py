@@ -47,11 +47,9 @@ def main(input_file):
 
     for car, carObject in carMap.items():
         print(f"Car street: {carObject.street}")
-        print(f"Street {carObject.street} cars: {streetMap[carObject.street].cars}")
-        print(f"{car}")
+        print(f"Street '{carObject.street}' cars: {streetMap[carObject.street].cars}")
         streetMap[carObject.street].cars.append(car)
-        print(f"Street {carObject.street} cars: {streetMap[carObject.street].cars}")
-
+        print(f"Street '{carObject.street}' cars: {streetMap[carObject.street].cars}")
     
     for street in streets:
         print(street.name)
