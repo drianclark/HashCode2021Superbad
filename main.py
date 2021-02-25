@@ -24,7 +24,16 @@ def createIntersections(num_intersections):
         intersections[uid] = Intersection(uid)
     return intersections
 
+def mostCrowdedStreet(streets):
+    mostCrowded = None
+    maxCars = 0
+    
+    for street in streets:
+        if len(street.cars) > maxCars:
+            mostCrowded = street
 
+    return mostCrowded
+    
 # the main loop for the program
 def main(input_file):
     ip = input_parser.InputParser(input_file)

@@ -44,6 +44,6 @@ class Intersection:
         if street.name in self.incoming:
             raise Exception(f"{street.name} is already incoming to this intersection")
         if street.name not in self.outgoing:
-            self.incoming[street.name] = street
+            self.outgoing[street.name] = street
         else:
             print("street is already outgoing from this intersection")
