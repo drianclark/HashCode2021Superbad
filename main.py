@@ -28,26 +28,29 @@ def main(input_file):
     intersections = []
 
     # produce the output file
-    out_file = input_file.split(".")[0] + ".out"
-    with open(out_file, 'w') as f:
-        schedule = produce_schedule(intersections, streets, cars)
-        print(f"Writing schedule to {out_file}.")
-        f.write(schedule)
+    # out_file = input_file.split(".")[0] + ".out"
+    # with open(out_file, 'w') as f:
+    #     schedule = produce_schedule(intersections, streets, cars)
+    #     print(f"Writing schedule to {out_file}.")
+    #     f.write(schedule)
         
     streetMap = {}
     
     for street in streets:
         streetMap[street.name] = street
-    
+    print(f"{streetMap}")
+        
     carMap = {}
     for car in cars:
         carMap[car.id] = car
+    print(f"{carMap}")
 
     for car, carObject in carMap.items():
-        print(carObject.street)
-        print(streetMap[carObject.street].cars)
-        streetMap[carObject.street].cars += car
-        print(streetMap[carObject.street].cars)
+        print(f"Car street: {carObject.street}")
+        print(f"Street {carObject.street} cars: {streetMap[carObject.street].cars}")
+        print(f"{car}")
+        streetMap[carObject.street].cars.append(car)
+        print(f"Street {carObject.street} cars: {streetMap[carObject.street].cars}")
 
     
     for street in streets:

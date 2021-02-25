@@ -1,7 +1,7 @@
 class Intersection:
     def __init__(self, uid):
         """
-              id : the unique idenity of this intersection
+        id : the unique idenity of this intersection
         on_light : name of street that is currently GREEN
         incoming : dict of connecting (incoming) Street objects keyed by name 
         outgoing : dict of outgoing Street objects keyed by name
