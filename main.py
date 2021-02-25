@@ -33,6 +33,27 @@ def main(input_file):
         schedule = produce_schedule(intersections, streets, cars)
         print(f"Writing schedule to {out_file}.")
         f.write(schedule)
+        
+    streetMap = {}
+    
+    for street in streets:
+        streetMap[street.name] = street
+    
+    carMap = {}
+    for car in cars:
+        carMap[car.id] = car
+
+    for car, carObject in carMap.items():
+        print(carObject.street)
+        print(streetMap[carObject.street].cars)
+        streetMap[carObject.street].cars += car
+        print(streetMap[carObject.street].cars)
+
+    
+    for street in streets:
+        print(street.name)
+        print(street.cars)
+        print()
 
 
 if __name__ == "__main__":
